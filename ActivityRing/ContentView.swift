@@ -49,6 +49,27 @@ struct RingPath: Shape {
     
     
 }
+
+
+struct RingView: View {
+    var percent: Double
+    var ringColor: Color
+    
+    var body: some View {
+        GeometryReader { proxy in
+            ZStack {
+                RingPath(percent: 100)
+                    .stroke(style: StrokeStyle(lineWidth: 20))
+                    .fill(ringColor.opacity(0.2))
+                
+                RingPath(percent: percent)
+                    .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round))
+                    .fill(ringColor)
+            }
+            .padding()
+        }
+    }
+}
 /*
  https://www.devtechie.com/community/public/posts/153868-let-s-build-activity-ring-in-swiftui
  */
