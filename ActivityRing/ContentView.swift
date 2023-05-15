@@ -24,3 +24,17 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+struct RingPath: Shape {
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            
+        }
+    }
+    
+    
+}
+/*
+ https://www.devtechie.com/community/public/posts/153868-let-s-build-activity-ring-in-swiftui
+ */
