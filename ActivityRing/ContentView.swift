@@ -28,7 +28,14 @@ struct ContentView_Previews: PreviewProvider {
 
 struct RingPath: Shape {
     var percent: Double
-    
+    var animatableData: Double {
+        get {
+            percent
+        }
+        set {
+            percent = newValue
+        }
+    }
     func path(in rect: CGRect) -> Path {
         Path { path in
             path.addArc(center: CGPoint(x: rect.width / 2, y: rect.height / 2), // center will be middle of the rect
