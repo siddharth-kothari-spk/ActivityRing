@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var animate = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            RingView(percent: animate ? 100 : 20, ringColor: .pink)
+                .frame(width: 200, height: 200)
+            RingView(percent: animate ? 100 : 60, ringColor: .green)
+                .frame(width: 150, height: 150)
+            RingView(percent: animate ? 100 : 10, ringColor: .cyan)
+                .frame(width: 100, height: 100)
         }
-        .padding()
+        .onTapGesture {
+            withAnimation(Animation.spring()) {
+                animate.toggle()
+            }
+        }
     }
 }
 
